@@ -2,5 +2,9 @@ export default {
     // Authentication
 
     signup: '/driver/signup',
-    login: '/driver/login'
+    login: '/driver/login',
+
+    // PROTECTED
+    searchRides: "/driver/ride/search",
+    acceptRide: "/driver/ride/accept"
 }

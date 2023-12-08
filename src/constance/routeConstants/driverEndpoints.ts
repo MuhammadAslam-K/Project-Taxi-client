@@ -5,6 +5,6 @@ export default {
     login: '/driver/login',
 
     // PROTECTED
-    dashboard: '/driver'
+    dashboard: '/driver/dashboard'
 
 }
