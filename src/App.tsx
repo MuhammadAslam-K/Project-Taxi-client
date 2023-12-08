@@ -5,6 +5,7 @@ import UserRoutes from "./routes/user/routes";
 import { Toaster } from "react-hot-toast";
 
 import './App.css'
+import DriverRoutes from "./routes/driver/routes";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Routes>
 
           <Route path="/*" element={<UserRoutes />} />
+          <Route path="/driver/*" element={<DriverRoutes />} />
 
         </Routes>
       </Router >
