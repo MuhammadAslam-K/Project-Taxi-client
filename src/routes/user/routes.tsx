@@ -7,6 +7,7 @@ import UserPublicRoute from './public';
 import UserSignupPage from '../../pages/user/authentication/UserSignupPage';
 import UserLoginPage from '../../pages/user/authentication/UserLoginPage';
 import UserHomePage from '../../pages/user/home/UserHomePage';
+import RideDetailsPage from '../../pages/user/RideDetailsPage';
 
 
 
@@ -17,6 +18,7 @@ const UserRoutes: React.FC = () => {
             <Route path="/login" element={<UserPublicRoute component={UserLoginPage} />} />
 
             <Route path="/" element={<UserProtectedRoute component={UserHomePage} />} />
+            <Route path="/rides" element={<UserProtectedRoute component={RideDetailsPage} />} />
 
 
         </Routes>

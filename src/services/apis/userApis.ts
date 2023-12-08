@@ -5,5 +5,6 @@ export default {
     login: '/login',
 
     // PROTECTED
-    booking: '/booking'
+    booking: '/booking',
+    rides: '/rides',
 }
