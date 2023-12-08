@@ -1,6 +1,10 @@
 export default {
-    // Authentication
+    // PUBLIC
 
     signup: '/signup',
-    login: '/login'
+    login: '/login',
+
+    // PROTECTED
+    home: '/'
+
 }
