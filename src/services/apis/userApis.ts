@@ -2,5 +2,8 @@ export default {
     // Authentication
 
     signup: '/signup',
-    login: '/login'
+    login: '/login',
+
+    // PROTECTED
+    booking: '/booking'
 }
