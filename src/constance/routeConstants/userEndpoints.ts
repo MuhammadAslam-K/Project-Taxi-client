@@ -5,6 +5,7 @@ export default {
     login: '/login',
 
     // PROTECTED
-    home: '/'
+    home: '/',
+    rides: '/rides'
 
 }
