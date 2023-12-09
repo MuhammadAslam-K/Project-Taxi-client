@@ -11,9 +11,7 @@ function Dashboard() {
 
     const handleSearch = async () => {
         try {
-            console.log(searchText)
             const response = await driverAxios.get(`${driverApis.searchRides}?value=${searchText}`)
-            console.log(response)
             setRidesData(response.data)
         } catch (error) {
             console.log("Error in search (Driver)", error)
@@ -23,8 +21,7 @@ function Dashboard() {
     const handleAcceptRide = async (rideId: string, price: string) => {
         try {
             if (Number(price) > 0 && !isNaN(Number(price))) {
-                const response = await driverAxios.patch(`${driverApis.acceptRide}?price=${price}&rideId=${rideId}`);
-                console.log(response)
+                await driverAxios.patch(`${driverApis.acceptRide}?price=${price}&rideId=${rideId}`);
                 handleSearch()
             } else {
                 toast.error('Please enter a valid price.');

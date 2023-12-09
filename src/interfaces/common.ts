@@ -3,6 +3,8 @@ export interface RouteProps {
 }
 
 export interface RideDetails {
+    _id: string
+    driver_id: string
     date: string;
     driverStatus: string;
     dropLocation: string;
@@ -12,3 +14,5 @@ export interface RideDetails {
     price: string
     chat: string
 }
+
+

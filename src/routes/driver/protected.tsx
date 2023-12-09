@@ -6,9 +6,8 @@ import { RouteProps } from '../../interfaces/common';
 
 
 const DriverProtectedRoute: React.FC<RouteProps> = ({ component: Component }) => {
-    const driver = useSelector((state: RootState) => state.driver.loggedIn);
+    const driver = useSelector((state: RootState) => state.driver.loggedIn)
 
-    console.log(driver)
     if (!driver) {
 
         return <Navigate to="/driver/login" />;

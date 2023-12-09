@@ -49,16 +49,12 @@ function SignUp() {
 
     const submitSignUpForm = async () => {
         try {
-            const data = await userAxios.post(userApis.signup, formik.values)
-            console.log(data)
+            await userAxios.post(userApis.signup, formik.values)
             navigate(userEndpoints.login)
         } catch (error) {
             console.log("Error in user signup", error)
         }
     }
-
-
-
 
 
     const without_error_class = "pl-2 outline-none border-b-4 w-full rounded-lg p-2.5 sm:text-sm";
