@@ -1,7 +1,3 @@
-Certainly! Here's an example of a README file for your GitHub repository based on the provided information:
-
----
-
 # Taxi Booking App
 
 This project is a taxi booking application consisting of two main modules: **User** and **Driver**.
