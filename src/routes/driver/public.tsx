@@ -8,10 +8,9 @@ import { RouteProps } from '../../interfaces/common';
 const DriverPublicRoute: React.FC<RouteProps> = ({ component: Component }) => {
     const driver = useSelector((state: RootState) => state.driver.loggedIn);
 
-    console.log(driver)
     if (driver) {
 
-        return <Navigate to="/driver" />;
+        return <Navigate to="/driver/dashboard" />;
     }
     return <Component />;
 };

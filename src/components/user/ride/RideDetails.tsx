@@ -28,7 +28,6 @@ function RideDetails() {
     const fetchUserRide = async () => {
         try {
             const response = await userAxios.get(userApis.rides);
-            console.log(response);
             setDriverApprovedRide(response.data.approved);
             setDriverUnApprovedRide(response.data.unApproved);
             setCompletedRide(response.data.completed);

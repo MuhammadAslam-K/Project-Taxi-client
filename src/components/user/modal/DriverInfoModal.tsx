@@ -27,7 +27,6 @@ const DriverInfoModal = (props: Recipe) => {
     const fetchDriverData = async () => {
         try {
             const response = await userAxios.get(`${userApis.getDriverInfo}?driverId=${driverModal}`);
-            console.log(response)
             setdriverInfo(response.data)
         } catch (error) {
             console.log("error in getting driver details (user)", error)

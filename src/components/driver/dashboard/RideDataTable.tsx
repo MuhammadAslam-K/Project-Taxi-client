@@ -9,6 +9,7 @@ function RideDataTable() {
 
     const [completedRides, setcompletedRides] = useState([])
     const [pendingRides, setpendingRides] = useState([])
+
     const [activeTab, setActiveTab] = useState("Pending")
     const [chat, SetChat] = useState(false)
     const [rideId, SetrideId] = useState("")
@@ -42,7 +43,6 @@ function RideDataTable() {
     }
 
     const renderChatCell = (rideId: string) => {
-        console.log(49)
         return (
             <button className="bg-blue-500 text-white py-1 px-3 p-3 rounded" onClick={() => { SetrideId(rideId), SetChat(true) }}>
                 Open Chat

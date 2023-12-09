@@ -8,7 +8,6 @@ import { RouteProps } from '../../interfaces/common';
 const UserProtectedRoute: React.FC<RouteProps> = ({ component: Component }) => {
     const user = useSelector((state: RootState) => state.user.loggedIn);
 
-    console.log(user)
     if (!user) {
 
         return <Navigate to="/login" />;

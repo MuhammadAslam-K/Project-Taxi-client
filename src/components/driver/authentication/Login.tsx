@@ -40,7 +40,7 @@ function Login() {
             const response = await driverAxios.post(driverApis.login, values)
             dispatch(driverLogin());
             localStorage.setItem('driverToken', response.data);
-            navigate(driverEndpoints.dashboard)
+            navigate('/driver/dashboard')
 
         } catch (error) {
             console.log("Error in driver login", error)
