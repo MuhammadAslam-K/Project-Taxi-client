@@ -35,6 +35,3 @@ This project is a taxi booking application consisting of two main modules: **Use
 - **Database**: MongoDB was used as the database for storing application data.
 - **Server**: Node.js with Express was used to create the backend server.
 
----
-
-Feel free to elaborate further on each section, provide setup instructions, installation guidelines, or additional details as needed for users to understand and use your project. You can also include screenshots, code snippets, or links to resources for more clarity and documentation. Adjust and expand the README file according to your project's specifics and requirements.
