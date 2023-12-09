@@ -7,6 +7,7 @@ export interface RideDetails {
     driverStatus: string;
     dropLocation: string;
     pickupLocation: string;
+    time: string;
     status: string;
     price: string
     chat: string

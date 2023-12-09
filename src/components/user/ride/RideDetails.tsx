@@ -8,7 +8,7 @@ function RideDetails() {
     const [driverApprovedRide, setDriverApprovedRide] = useState<RideDetails[]>([]);
     const [driverUnApprovedRide, setDriverUnApprovedRide] = useState<RideDetails[]>([]);
     const [completedRide, setCompletedRide] = useState<RideDetails[]>([]);
-    const [activeTab, setActiveTab] = useState("approved"); // State to manage active tab
+    const [activeTab, setActiveTab] = useState("approved")
 
     useEffect(() => {
         fetchUserRide();
@@ -61,6 +61,10 @@ function RideDetails() {
         {
             name: "Drop Location",
             selector: (row: RideDetails) => row.dropLocation,
+        },
+        {
+            name: "Pickup Time",
+            selector: (row: RideDetails) => row.time,
         },
     ];
 
