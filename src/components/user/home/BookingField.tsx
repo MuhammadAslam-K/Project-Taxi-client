@@ -37,8 +37,7 @@ const BookingField = () => {
 
     const handleSubmit = async (values: { pickupLocation: string, dropLocation: string, time: string }) => {
         try {
-            const response = await userAxios.post(userApis.booking, values)
-            console.log(response)
+            await userAxios.post(userApis.booking, values)
             toast.success("Ride booked successfully")
         } catch (error) {
             console.log("Error in booking", error)

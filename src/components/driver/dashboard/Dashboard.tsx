@@ -35,7 +35,7 @@ function Dashboard() {
     };
 
     return (
-        <div className="h-screen bg-gray-200">
+        <>
             <div className="flex justify-center">
                 <div className="bg-white shadow-md mt-10 rounded-lg p-6 w-3/4">
                     <div className="flex items-center border border-gray-300 rounded-md mb-4">
@@ -54,6 +54,7 @@ function Dashboard() {
                     </div>
 
                     <div>
+                        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                         {ridesData.map((ride: any) => (
                             <div key={ride._id} className="flex items-center border-b py-4">
                                 <div className="flex-1">
@@ -80,11 +81,9 @@ function Dashboard() {
                             </div>
                         ))}
                     </div>
-
-
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

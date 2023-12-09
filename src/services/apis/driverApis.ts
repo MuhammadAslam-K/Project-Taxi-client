@@ -5,6 +5,7 @@ export default {
     login: '/driver/login',
 
     // PROTECTED
+    getRides: "/driver/ride",
     searchRides: "/driver/ride/search",
-    acceptRide: "/driver/ride/accept"
+    acceptRide: "/driver/ride/accept",
 }
