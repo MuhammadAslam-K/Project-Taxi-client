@@ -1,14 +1,17 @@
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import driverAxios from '../../../services/axios/driverAxiosinterceptors'
 import driverApis from '../../../services/apis/driverApis'
 import DataTable from 'react-data-table-component'
 import { RideDetails } from '../../../interfaces/common'
+import ChatModal from '../../chat/Chat'
 
 function RideDataTable() {
 
     const [completedRides, setcompletedRides] = useState([])
     const [pendingRides, setpendingRides] = useState([])
     const [activeTab, setActiveTab] = useState("Pending")
+    const [chat, SetChat] = useState(false)
+    const [rideId, SetrideId] = useState("")
 
 
     useEffect(() => {
@@ -38,9 +41,10 @@ function RideDataTable() {
         filteredData = completedRides;
     }
 
-    const renderChatCell = () => {
+    const renderChatCell = (rideId: string) => {
+        console.log(49)
         return (
-            <button className="mx-2 py-2 px-4 rounded bg-blue-500 text-white">
+            <button className="bg-blue-500 text-white py-1 px-3 p-3 rounded" onClick={() => { SetrideId(rideId), SetChat(true) }}>
                 Open Chat
             </button>
         );
@@ -73,7 +77,7 @@ function RideDataTable() {
         columns.push(
             {
                 name: "Chat",
-                cell: () => renderChatCell()
+                cell: (row: RideDetails) => renderChatCell(row._id)
             }
         );
     }
@@ -93,35 +97,47 @@ function RideDataTable() {
         return `${formattedDate} ${formattedTime}`;
     }
 
-    return (
-        <div className="mt-10 w-10/12 lg:ms-32 ms-6 bg-white p-6 rounded-3xl shadow-2xl justify-center">
-            <div className="flex justify-center mb-4">
-                {/* Tabs for different ride statuses */}
-                <button
-                    className={`mx-2 py-2 px-4 rounded ${activeTab === "Pending" ? "bg-blue-500 text-white" : "bg-gray-300"
-                        }`}
-                    onClick={() => handleTabChange("Pending")}
-                >
-                    Pending
-                </button>
-                <button
-                    className={`mx-2 py-2 px-4 rounded ${activeTab === "completed" ? "bg-blue-500 text-white" : "bg-gray-300"
-                        }`}
-                    onClick={() => handleTabChange("completed")}
-                >
-                    Completed
-                </button>
-            </div>
+    const handleChangeTheChatState = () => {
+        SetChat(!chat)
+    }
 
-            <DataTable
-                style={{ zIndex: "-1" }}
-                columns={columns}
-                data={filteredData}
-                fixedHeader
-                highlightOnHover
-                pagination
-            />
-        </div>
+    return (
+        <>
+            {chat && rideId &&
+                <Suspense fallback="loading please wait.....">
+                    <ChatModal rideId={rideId} role={"driver"} handleChangeTheChatState={handleChangeTheChatState} />
+                </Suspense>
+            }
+
+            <div className="mt-10 w-10/12 lg:ms-32 ms-6 bg-white p-6 rounded-3xl shadow-2xl justify-center">
+                <div className="flex justify-center mb-4">
+                    {/* Tabs for different ride statuses */}
+                    <button
+                        className={`mx-2 py-2 px-4 rounded ${activeTab === "Pending" ? "bg-blue-500 text-white" : "bg-gray-300"
+                            }`}
+                        onClick={() => handleTabChange("Pending")}
+                    >
+                        Pending
+                    </button>
+                    <button
+                        className={`mx-2 py-2 px-4 rounded ${activeTab === "completed" ? "bg-blue-500 text-white" : "bg-gray-300"
+                            }`}
+                        onClick={() => handleTabChange("completed")}
+                    >
+                        Completed
+                    </button>
+                </div>
+
+                <DataTable
+                    style={{ zIndex: "-1" }}
+                    columns={columns}
+                    data={filteredData}
+                    fixedHeader
+                    highlightOnHover
+                    pagination
+                />
+            </div>
+        </>
     )
 }
 

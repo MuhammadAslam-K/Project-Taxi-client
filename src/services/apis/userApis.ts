@@ -7,4 +7,5 @@ export default {
     // PROTECTED
     booking: '/booking',
     rides: '/rides',
+    getDriverInfo: '/info/driver'
 }
